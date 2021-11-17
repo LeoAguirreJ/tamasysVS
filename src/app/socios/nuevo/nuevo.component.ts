@@ -8,7 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./nuevo.component.css']
 })
 export class NuevoComponent implements OnInit {
-
+  
+  lista:string[]=[
+    "Cedula de ciudadania",
+    "Cedula de Extranjeria",
+    "Tarjeta de Identidad",
+    "Pasaporte"
+  ];
+  
   socio:any={
     nombreSocio: "",
     tipoDocumento: "",

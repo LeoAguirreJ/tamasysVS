@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 declare const $:any;
 @Component({
@@ -10,7 +11,7 @@ declare const $:any;
 export class ConsultarComponent implements OnInit {
 
   infoConsulta:any;
-  constructor(private http: HttpClient) { }
+  constructor(private rou:Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.listar();
@@ -34,5 +35,9 @@ export class ConsultarComponent implements OnInit {
       console.log(res);
       this.listar();
     })
+  }
+
+  formularioActualizar(id:any):void{
+    this.rou.navigate(["/editar",id]);
   }
 }

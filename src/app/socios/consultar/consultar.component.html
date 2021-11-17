@@ -19,7 +19,7 @@
             <td>{{x.telefono}}</td>
             <td>{{x.email}}</td>
             <td>
-                <button class="btn btn-warning">Editar</button>
+                <button (click)="formularioActualizar(x.id)" class="btn btn-warning">Editar</button>
                 <button (click)="eliminar(x.id)" class="btn btn-danger">Eliminar</button>
             </td>
         </tr>

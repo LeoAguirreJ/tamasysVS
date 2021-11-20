@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+
+declare const Swal: any;
 
 @Component({
   selector: 'app-editar',
@@ -16,6 +18,7 @@ export class EditarComponent implements OnInit {
     "Pasaporte"
   ];
   socio:any={
+    id:"",
     nombreSocio: "",
     tipoDocumento: "",
     documento: "",
@@ -24,7 +27,7 @@ export class EditarComponent implements OnInit {
   }
 
   codId:any;
-  constructor(private rou:ActivatedRoute, private http: HttpClient) { }
+  constructor(private route:Router,private rou:ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.codId=this.rou.snapshot.params["id"];
@@ -39,8 +42,13 @@ export class EditarComponent implements OnInit {
     this.http.put("http://localhost:8080/api/tamasys/socios/actualizar/"+this.codId, this.socio)
     .subscribe((res:any)=>{
       console.log(res);
-      alert("El socio se ha actualizado correctamente");
-      window.location.reload();
+      Swal.fire({
+        icon: 'success',
+        title: 'Vehículo!!!',
+        text: 'Actualizado Satisfactoriamente',
+        timer: 2000
+      })
+      this.route.navigate(["/consultar"]);
     })
   }
 }

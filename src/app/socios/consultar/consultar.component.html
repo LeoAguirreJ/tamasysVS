@@ -20,7 +20,7 @@
             <td>{{x.email}}</td>
             <td>
                 <button (click)="formularioActualizar(x.id)" class="btn btn-warning">Editar</button>
-                <button (click)="eliminar(x.id)" class="btn btn-danger">Eliminar</button>
+                <button (click)="eliminar(x.id, x.nombreSocio)" class="btn btn-danger">Eliminar</button>
             </td>
         </tr>
     </tbody>

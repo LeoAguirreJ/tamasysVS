@@ -46,7 +46,7 @@ export class ConsultarComponent implements OnInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire('Eliminado!', '', 'success');
-
+        //eliminar
         this.http.delete("http://localhost:8080/api/tamasys/vehiculos/eliminar/"+x)
         .subscribe((Res:any)=>{
         console.log(Res);

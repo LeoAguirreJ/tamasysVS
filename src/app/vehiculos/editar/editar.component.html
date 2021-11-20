@@ -1,0 +1,48 @@
+<br />
+<h1>Actualizar Vehículo {{ m.id }}</h1>
+<hr />
+
+<p>Documento Socio:</p>
+<input
+  type="text"
+  [(ngModel)]="m.docSocio"
+  placeholder="Documento del socio"
+  class="form-control"
+/>
+<p>Documento Conductor:</p>
+<input
+  type="text"
+  [(ngModel)]="m.docConductor"
+  placeholder="Documento del conductor"
+  class="form-control"
+/>
+<p>Placa:</p>
+<input
+  type="text"
+  [(ngModel)]="m.placa"
+  placeholder="Placa"
+  class="form-control"
+/>
+<p>Número Taxi:</p>
+<input
+  type="text"
+  [(ngModel)]="m.numeroTaxi"
+  placeholder="Numero del taxi"
+  class="form-control"
+/>
+<p>SOAT:</p>
+<input
+  type="date"
+  [(ngModel)]="m.soat"
+  placeholder="Soat"
+  class="form-control"
+/>
+<p>Técnico Mecánica:</p>
+<input
+  type="date"
+  [(ngModel)]="m.tecnicoMecanica"
+  placeholder="Técnico Mecánica"
+  class="form-control"
+/>
+<hr />
+<button (click)="Actualizar()" class="btn btn-primary">Actualizar</button>

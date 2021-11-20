@@ -1,0 +1,30 @@
+<br>
+
+<table id="t_vehiculos" class="table table-striped table-bordered table-hover display" style="width:100%">
+    <thead>
+        <tr>
+            <th>DOCUMENTO SOCIO</th>
+            <th>DOCUMENTO CONDUCTOR</th>
+            <th>PLACA</th>
+            <th>NÚMERO TAXI</th>
+            <th>SOAT</th>
+            <th>TECNICO MECANICA</th>
+            <th>OPCIÓN</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of infoConsulta">
+            <td>{{x.docSocio}}</td>
+            <td>{{x.docConductor}}</td>
+            <td>{{x.placa}}</td>
+            <td>{{x.numeroTaxi}}</td>
+            <td>{{x.soat}}</td>
+            <td>{{x.tecnicoMecanica}}</td>
+            <td>
+                <button (click)="FormularioEditar(x.id)"class="btn btn-warning">Editar</button>
+                <button (click)="eliminar(x.id)" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+    
+</table>

@@ -1,0 +1,29 @@
+<br>
+<div class="col-12">
+    <table class="table table-striped table-bordered table-hover display" id="t_pagos">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Documento</th>
+                <th>Placa</th>
+                <th>Fecha de Pago</th>
+                <th>Valor</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pago of infoPagos">
+                <td>{{pago.idPago}}</td>
+                <td>{{pago.docSocio}}</td>
+                <td>{{pago.placa}}</td>
+                <td>{{pago.fechaPago}}</td>
+                <td>{{pago.valorPago}}</td>
+                <td>
+                    <button (click)="formularioActualizar(pago.id)" class="btn btn-warning">Editar</button>
+                    <button (click)="eliminar(pago.id,pago.idPago)" class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

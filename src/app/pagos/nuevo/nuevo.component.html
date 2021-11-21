@@ -1,0 +1,48 @@
+<h1>Nuevo Pago</h1>
+<form (submit)="guardarPago()" ngNativeValidate>
+    <div class="col mt-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form mb-3">
+                    <label for="idPago">Código de Pago</label>
+                    <input required type="text" [(ngModel)]="formuPago.idPago" name="idPago" id="idPago" class="form-control" placeholder="Código del pago">
+                </div>    
+            </div>
+            <div class="col-lg-4">
+                <div class="form mb-3">
+                    <label for="docSocio">Socio</label>
+                    <input required type="text" [(ngModel)]="formuPago.docSocio" name="docSocio" id="docSocio" class="form-control" placeholder="Socio">
+                </div>    
+            </div>
+            <div class="col-lg-4">
+                <div class="form mb-3">
+                    <label for="correo">Fecha</label>
+                    <input required type="date" [(ngModel)]="formuPago.fechaPago" name="fechaPago" id="fechaPago"  class="form-control" placeholder="Fecha de pago" aria-describedby="fechaPago">
+                    <div id="fechaPago" class="form-text">
+                        Fecha del pago recibido.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form mb-3">
+                    <label for="placa">Placa Vehículo</label>
+                    <input required type="text" [(ngModel)]="formuPago.placa" name="placa" id="placa" class="form-control" placeholder="Placa Vehículo">
+                </div>    
+            </div>
+            <div class="col-lg-6">
+                <div class="form mb-3">
+                    <label for="valor" class="form-label">Valor</label>
+                    <input required type="text" [(ngModel)]="formuPago.valorPago" name="valor" id="valor" class="form-control" placeholder="$ Valor del pago">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr>
+                <button type="submit" class="btn btn-success">Regístrar Pago</button>
+            </div>
+        </div>
+    </div>
+</form>

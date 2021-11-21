@@ -34,9 +34,10 @@ export class NuevoComponent implements OnInit {
   guardar(): void {
 
     this.http.post("http://localhost:8080/api/tamasys/socios/crear", this.socio)
-    .subscribe((res: any) => {
-      console.log(res);
-    });
+      .subscribe((res: any) => {
+        console.log(res);
+      });
+
     Swal.fire({
       title: 'El socio se ha registrado correctamente, ¿desea continuar agregando mas socios?',
       icon: 'success',
@@ -46,15 +47,12 @@ export class NuevoComponent implements OnInit {
       cancelButtonText: 'Volver',
       //denyButtonText: `Don't save`,
     }).then((result: any) => {
-      /* Read more about isConfirmed, isDenied below */
+      // Read more about isConfirmed, isDenied below 
       if (result.isConfirmed) {
         window.location.reload();
-      }else{
+      } else {
         this.rou.navigate(["/consultar"]);
       }
     })
-
-
-    
-}
+  }
 }

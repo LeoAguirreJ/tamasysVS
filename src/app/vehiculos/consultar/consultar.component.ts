@@ -21,7 +21,11 @@ export class ConsultarComponent implements OnInit {
   ngOnInit(): void {
     this.listar();
     setTimeout(function(){
-      $('#t_vehiculos').DataTable();
+      $('#t_vehiculos').DataTable({
+        "language": {
+          "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es-mx.json"
+      }
+      });
     },500)
 
   }

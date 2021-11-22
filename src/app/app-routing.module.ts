@@ -11,7 +11,10 @@ const routes: Routes = [
   { path: 'nuevo_pago', loadChildren: () => import('./pagos/nuevo/nuevo.module').then(m => m.NuevoModule) },
   { path: 'consultar_pagos', loadChildren: () => import('./pagos/consultar/consultar.module').then(m => m.ConsultarModule) },
   { path: 'editar_pago/:id', loadChildren: () => import('./pagos/editar/editar.module').then(m => m.EditarModule) }];
-
+  { path: 'consultar_conductor', loadChildren: () => import('./conductores/consultar/consultar.module').then(m => m.ConsultarModule) },
+  { path: 'nuevo_conductor', loadChildren: () => import('./conductores/nuevo/nuevo.module').then(m => m.NuevoModule) },
+  { path: 'editar_conductor/:id', loadChildren: () => import('./conductores/editar/editar.module').then(m => m.EditarModule) },
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

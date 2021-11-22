@@ -1,0 +1,58 @@
+<form (submit)="guardar()" ngNativeValidate>
+    <h1>Registro de un Nuevo Conductor</h1>
+    <hr>
+
+    <p>Nombre del conductor:</p>
+    <input 
+    type="text" 
+    name="nombreConductor" 
+    [(ngModel)]="conductor.nombreConductor" 
+    placeholder="Nombre completo del conductor" 
+    class="form-control" required>
+
+    <p>Tipo de Documento:</p>
+    <select 
+    name="tipoDocumento" 
+    [(ngModel)]="conductor.tipoDocumento" 
+    class="form-control" required>
+
+        <option 
+        *ngFor="let item of lista" 
+        [ngValue]="item">{{item}}</option>
+
+    </select>
+    <p>Documento de identidad:</p>
+    <input 
+    type="number" 
+    name="documento" 
+    [(ngModel)]="conductor.documento" 
+    placeholder="Número del documento de identidad del conductor" 
+    class="form-control" required>
+
+    <p>Teléfono:</p>
+    <input 
+    type="number" 
+    name="telefono" 
+    [(ngModel)]="conductor.telefono" 
+    placeholder="Teléfono del conductor" 
+    class="form-control" required>
+
+    <p>Correo electrónico:</p>
+    <input 
+    type="email" 
+    name="correo" 
+    [(ngModel)]="conductor.email" 
+    placeholder="Correo Electrónico del conductor" 
+    class="form-control" required>
+
+    <p>Fecha de vencimiento de la licencia de conducción:</p>
+    <input 
+    type="number" 
+    name="licencia" 
+    [(ngModel)]="conductor.licencia" 
+    placeholder="Fecha de vencimiento de la licencia de conducción" 
+    class="form-control" required>
+
+    <hr>
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>

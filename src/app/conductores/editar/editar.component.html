@@ -1,0 +1,50 @@
+<br>
+<h1>Actualizar la información del conductor</h1>
+<hr>
+
+<p>Nombre:</p>
+<input 
+type="text" 
+[(ngModel)]="conductor.nombreConductor" 
+placeholder="Nombre completo del conductor" 
+class="form-control"
+/>
+
+<p>Tipo de Documento:</p>
+<select 
+[(ngModel)]="conductor.tipoDocumento" 
+class="form-control" required
+>
+    <option *ngFor="let item of lista" [ngValue]="item" >{{item}}</option>
+    
+</select>
+<p>Documento de identidad:</p>
+<input 
+type="text" 
+[(ngModel)]="conductor.documento" 
+placeholder="Número del documento de identidad del conductor" 
+class="form-control">
+
+<p>Teléfono:</p>
+<input 
+type="number" 
+[(ngModel)]="conductor.telefono" 
+placeholder="Teléfono del conductor" 
+class="form-control">
+
+<p>Correo electrónico:</p>
+<input 
+type="text" 
+[(ngModel)]="conductor.correo" 
+placeholder="Correo Electrónico del conductor" 
+class="form-control">
+
+<p>Fecha de vencimiento de la licencia de conducción:</p>
+<input 
+type="text" 
+[(ngModel)]="conductor.licencia" 
+placeholder="Fecha de vencimiento de la licencia de conducción" 
+class="form-control">
+
+<hr>
+<button (click)="actualizar()" class="btn btn-primary">Actualizar</button>

@@ -49,7 +49,7 @@ export class EditarComponent implements OnInit {
         text: 'Actualizado Satisfactoriamente',
         timer: 2000
       })
-      this.route.navigate(["/consultar_conductores"]);
+      this.route.navigate(["/consultar_conductor"]);
     })
   }
 }

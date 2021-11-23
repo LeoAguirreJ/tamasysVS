@@ -12,8 +12,8 @@ declare const Swal: any;
 export class NuevoComponent implements OnInit {
 
   lista: string[] = [
-    "Cedula de ciudadania",
-    "Cedula de Extranjeria",
+    "Cédula de ciudadanía",
+    "Cédula de Extranjería",
     "Tarjeta de Identidad",
     "Pasaporte"
   ];

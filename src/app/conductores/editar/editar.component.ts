@@ -45,7 +45,7 @@ export class EditarComponent implements OnInit {
       console.log(res);
       Swal.fire({
         icon: 'success',
-        title: 'Vehículo!!!',
+        title: 'Conductor!!!',
         text: 'Actualizado Satisfactoriamente',
         timer: 2000
       })

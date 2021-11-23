@@ -34,7 +34,7 @@ export class NuevoComponent implements OnInit {
 
   guardar(): void {
 
-    this.http.post("http://localhost:8080/api/tamasys/conductores/crear", this.conductor)
+    this.http.post("http://localhost:8080/api/tamasys/conductores/crear/", this.conductor)
       .subscribe((res: any) => {
         console.log(res);
       });

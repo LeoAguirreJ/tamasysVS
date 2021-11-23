@@ -27,7 +27,7 @@ export class ConsultarComponent implements OnInit {
   }
 
   listar(): void {
-    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar", { responseType: "json" })
+    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar/", { responseType: "json" })
       .subscribe((res: any) => {
         console.log(res);
         this.infoConsulta = res;

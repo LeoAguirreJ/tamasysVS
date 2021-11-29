@@ -60,7 +60,7 @@ vehiculo:any={
         text: 'Actualizado Satisfactoriamente',
         timer: 2000
       })
-      this.rou.navigate(["/consultar_vehiculo"]);
+      this.rou.navigate(["/menu/consultar_vehiculo"]);
 
     });
   }

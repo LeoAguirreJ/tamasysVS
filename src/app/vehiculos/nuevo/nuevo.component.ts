@@ -34,7 +34,7 @@ export class NuevoComponent implements OnInit {
       this.socios = Res;
     });
 
-    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar",{responseType:"json"})
+    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar/",{responseType:"json"})
     .subscribe((Res:any)=>{
       this.conductores = Res;
     });
@@ -56,7 +56,7 @@ export class NuevoComponent implements OnInit {
         if (result.isConfirmed) {
           window.location.reload();
         }else {
-          this.rou.navigate(["/consultar_vehiculo"]);
+          this.rou.navigate(["/menu/consultar_vehiculo"]);
         }
       })
     });

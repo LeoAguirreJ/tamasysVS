@@ -44,11 +44,11 @@ export class EditarComponent implements OnInit {
       console.log(res);
       Swal.fire({
         icon: 'success',
-        title: 'Vehículo!!!',
+        title: 'Socio!!!',
         text: 'Actualizado Satisfactoriamente',
         timer: 2000
       })
-      this.route.navigate(["/consultar"]);
+      this.route.navigate(["/menu/consultar_socio"]);
     })
   }
 }

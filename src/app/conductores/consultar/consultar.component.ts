@@ -61,6 +61,6 @@ export class ConsultarComponent implements OnInit {
   }
 
   formularioActualizar(id: any): void {
-    this.rou.navigate(["/editar_conductor", id]);
+    this.rou.navigate(["/menu/editar_conductor", id]);
   }
 }

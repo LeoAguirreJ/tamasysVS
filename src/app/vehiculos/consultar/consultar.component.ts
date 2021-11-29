@@ -61,7 +61,7 @@ export class ConsultarComponent implements OnInit {
   }
 
   FormularioEditar(id:any):void{
-    this.rou.navigate(["/editar_vehiculo",id]);
+    this.rou.navigate(["/menu/editar_vehiculo",id]);
   }
 
 

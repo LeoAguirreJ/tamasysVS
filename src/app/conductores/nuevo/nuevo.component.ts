@@ -24,7 +24,7 @@ export class NuevoComponent implements OnInit {
     documento: "",
     telefono: "",
     email: "",
-    licencia: ""
+    licenciaconducir: ""
   }
 
   constructor(private rou: Router, private http: HttpClient) { }
@@ -52,7 +52,7 @@ export class NuevoComponent implements OnInit {
       if (result.isConfirmed) {
         window.location.reload();
       } else {
-        this.rou.navigate(["/consultar_conductor"]);
+        this.rou.navigate(["/menu/consultar_conductor"]);
       }
     })
   }

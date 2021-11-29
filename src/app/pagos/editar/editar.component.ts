@@ -38,7 +38,7 @@ export class EditarComponent implements OnInit {
     })
     this.http.put("http://localhost:8080/api/tamasys/pagos/actualizar/"+this.formuPago.id, this.formuPago)
     .subscribe((res:any)=>{
-      this.ruta.navigate(["/consultar_pagos"]);
+      this.ruta.navigate(["/menu/consultar_pagos"]);
     });
 
   }

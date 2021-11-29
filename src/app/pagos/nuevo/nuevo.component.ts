@@ -42,7 +42,7 @@ export class NuevoComponent implements OnInit {
       if (result.isConfirmed) {
         window.location.reload();
       }else{
-        this.ruta.navigate(["/consultar_pagos"]);
+        this.ruta.navigate(["/menu/consultar_pagos"]);
       }
     })
   }

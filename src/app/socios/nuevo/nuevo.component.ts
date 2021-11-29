@@ -51,7 +51,7 @@ export class NuevoComponent implements OnInit {
       if (result.isConfirmed) {
         window.location.reload();
       } else {
-        this.rou.navigate(["/consultar"]);
+        this.rou.navigate(["/menu/consultar_socio"]);
       }
     })
   }

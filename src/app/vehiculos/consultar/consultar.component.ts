@@ -38,35 +38,29 @@ export class ConsultarComponent implements OnInit {
     });
   }
 
-  eliminar(x:any):void{
+  eliminar(id:any):void{
     Swal.fire({
-      title: 'Está seguro que desea eliminar el vehículo?',
+      title: '¿Está seguro que desea eliminar el vehículo?',
       icon:'warning',
       showDenyButton: false,
       showCancelButton: true,
       confirmButtonText: 'Si, deseo eliminarlo',
+      cancelButtonText: 'Cancelar',
       //denyButtonText: `Don't save`,
     }).then((result:any) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire('Eliminado!', '', 'success');
-        //eliminar
-        this.http.delete("http://localhost:8080/api/tamasys/vehiculos/eliminar/"+x)
+        this.http.delete("http://localhost:8080/api/tamasys/vehiculos/eliminar/"+id)
         .subscribe((Res:any)=>{
-        console.log(Res);
         this.listar();
         });
 
       }
     })
-
-
-
   }
 
-
   FormularioEditar(id:any):void{
-    //alert(x);
     this.rou.navigate(["/editar_vehiculo",id]);
   }
 

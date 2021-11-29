@@ -11,7 +11,7 @@ declare const Swal:any;
 })
 export class EditarComponent implements OnInit {
 
-m:any={
+vehiculo:any={
     id:"",
     docSocio:"",
     docConductor:"",
@@ -20,28 +20,36 @@ m:any={
     soat:"",
     tecnicoMecanica:""
   }
+  socios:Array<any>=[];
+  conductores:Array<any>=[];
 
   constructor(private rou:Router,private rouvar:ActivatedRoute,private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.m.id=this.rouvar.snapshot.params["x"];
-
-    this.http.get("http://localhost:8080/api/tamasys/vehiculos/consultar/"+this.m.id,{responseType:"json"})
+    this.http.get("http://localhost:8080/api/tamasys/socios/consultar",{responseType:"json"})
     .subscribe((Res:any)=>{
-      this.m.docSocio=Res.docSocio;
-      this.m.docConductor=Res.docConductor;
-      this.m.placa=Res.placa;
-      this.m.numeroTaxi=Res.numeroTaxi;
-      this.m.soat=Res.soat;
-      this.m.tecnicoMecanica=Res.tecnicoMecanica;
+      this.socios = Res;
+    });
 
-      console.log(this.m);
+    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar",{responseType:"json"})
+    .subscribe((Res:any)=>{
+      this.conductores = Res;
+    });
+    this.vehiculo.id=this.rouvar.snapshot.params["id"];
 
+    this.http.get("http://localhost:8080/api/tamasys/vehiculos/consultar/"+this.vehiculo.id,{responseType:"json"})
+    .subscribe((Res:any)=>{
+      this.vehiculo.docSocio=Res.docSocio;
+      this.vehiculo.docConductor=Res.docConductor;
+      this.vehiculo.placa=Res.placa;
+      this.vehiculo.numeroTaxi=Res.numeroTaxi;
+      this.vehiculo.soat=Res.soat;
+      this.vehiculo.tecnicoMecanica=Res.tecnicoMecanica;
     });
   }
 
   Actualizar():void{
-    this.http.put("http://localhost:8080/api/tamasys/vehiculos/actualizar/"+this.m.id,this.m)
+    this.http.put("http://localhost:8080/api/tamasys/vehiculos/actualizar/"+this.vehiculo.id,this.vehiculo)
     .subscribe((Res:any)=>{
       console.log(Res);
       //alert("Actualizado Satisfactoriamente")

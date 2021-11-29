@@ -1,46 +1,42 @@
 <br />
-<h1>Actualizar Vehículo {{ m.id }}</h1>
+<h1>Actualizar Vehículo</h1>
 <hr />
 
 <p>Documento Socio:</p>
-<input
-  type="text"
-  [(ngModel)]="m.docSocio"
-  placeholder="Documento del socio"
-  class="form-control"
-/>
+<select name="docSocio" [(ngModel)]="vehiculo.docSocio" class="form-control" required>
+  <option *ngFor="let socio of socios" [ngValue]="socio.documento" >{{socio.documento}}</option>
+</select>
+
 <p>Documento Conductor:</p>
-<input
-  type="text"
-  [(ngModel)]="m.docConductor"
-  placeholder="Documento del conductor"
-  class="form-control"
-/>
+<select name="docConductor" [(ngModel)]="vehiculo.docConductor" class="form-control" required>
+  <option *ngFor="let conductor of conductores" [ngValue]="conductor.documento">{{conductor.documento}}</option>
+</select>
+
 <p>Placa:</p>
 <input
   type="text"
-  [(ngModel)]="m.placa"
+  [(ngModel)]="vehiculo.placa"
   placeholder="Placa"
   class="form-control"
 />
 <p>Número Taxi:</p>
 <input
   type="text"
-  [(ngModel)]="m.numeroTaxi"
+  [(ngModel)]="vehiculo.numeroTaxi"
   placeholder="Numero del taxi"
   class="form-control"
 />
 <p>SOAT:</p>
 <input
   type="date"
-  [(ngModel)]="m.soat"
+  [(ngModel)]="vehiculo.soat"
   placeholder="Soat"
   class="form-control"
 />
 <p>Técnico Mecánica:</p>
 <input
   type="date"
-  [(ngModel)]="m.tecnicoMecanica"
+  [(ngModel)]="vehiculo.tecnicoMecanica"
   placeholder="Técnico Mecánica"
   class="form-control"
 />

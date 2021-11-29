@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 declare const Swal:any;
 
 @Component({
@@ -11,7 +12,7 @@ declare const Swal:any;
 })
 export class NuevoComponent implements OnInit {
 
-  m:any={
+  vehiculo:any={
     docSocio:"",
     docConductor:"",
     placa:"",
@@ -20,26 +21,44 @@ export class NuevoComponent implements OnInit {
     tecnicoMecanica:""
   }
 
+  infoConsulta:any;
+  socios:Array<any>=[];
+  conductores:Array<any>=[];
 
-  constructor(private rou:Router,private http: HttpClient) { }
+  constructor(private rou:Router,private http: HttpClient) {
+  }
 
   ngOnInit(): void {
+    this.http.get("http://localhost:8080/api/tamasys/socios/consultar",{responseType:"json"})
+    .subscribe((Res:any)=>{
+      this.socios = Res;
+    });
+
+    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar",{responseType:"json"})
+    .subscribe((Res:any)=>{
+      this.conductores = Res;
+    });
   }
 
   guardar():void{
-    this.http.post("http://localhost:8080/api/tamasys/vehiculos/crear",this.m)
+    this.http.post("http://localhost:8080/api/tamasys/vehiculos/crear",this.vehiculo)
     .subscribe((Res:any)=>{
       console.log(Res);
-      //alert("Registrado Satisfactoriamente")
       Swal.fire({
+        title: 'El vehiculo se ha registrado correctamente, ¿desea continuar agregando más vehiculos?',
         icon: 'success',
-        title: 'Vehículo!!!',
-        text: 'Registrado Satisfactoriamente',
-        timer: 2000
+        showDenyButton: false,
+        showCancelButton: true,
+        confirmButtonText: 'Si, deseo continuar',
+        cancelButtonText: 'Volver',
+      }).then((result: any) => {
+        // Read more about isConfirmed, isDenied below
+        if (result.isConfirmed) {
+          window.location.reload();
+        }else {
+          this.rou.navigate(["/consultar_vehiculo"]);
+        }
       })
-
-      this.rou.navigate(["/consultar_vehiculo"]);
-
     });
   }
 

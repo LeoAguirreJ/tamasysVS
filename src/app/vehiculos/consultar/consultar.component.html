@@ -13,18 +13,18 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let x of infoConsulta">
-            <td>{{x.docSocio}}</td>
-            <td>{{x.docConductor}}</td>
-            <td>{{x.placa}}</td>
-            <td>{{x.numeroTaxi}}</td>
-            <td>{{x.soat}}</td>
-            <td>{{x.tecnicoMecanica}}</td>
+        <tr *ngFor="let vehiculo of infoConsulta">
+            <td>{{vehiculo.docSocio}}</td>
+            <td>{{vehiculo.docConductor}}</td>
+            <td>{{vehiculo.placa}}</td>
+            <td>{{vehiculo.numeroTaxi}}</td>
+            <td>{{vehiculo.soat}}</td>
+            <td>{{vehiculo.tecnicoMecanica}}</td>
             <td>
-                <button (click)="FormularioEditar(x.id)"class="btn btn-warning">Editar</button>
-                <button (click)="eliminar(x.id)" class="btn btn-danger">Eliminar</button>
+                <button (click)="FormularioEditar(vehiculo.id)"class="btn btn-warning">Editar</button>
+                <button (click)="eliminar(vehiculo.id)" class="btn btn-danger">Eliminar</button>
             </td>
         </tr>
     </tbody>
-    
+
 </table>

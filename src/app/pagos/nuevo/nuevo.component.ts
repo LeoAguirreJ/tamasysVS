@@ -10,7 +10,8 @@ declare const Swal: any;
   styleUrls: ['./nuevo.component.css']
 })
 export class NuevoComponent implements OnInit {
-
+  infoSocio: any;
+  infoVehiculo: any;
   formuPago: any ={
     idPago:"",
     docSocio:"",
@@ -21,6 +22,22 @@ export class NuevoComponent implements OnInit {
   constructor(private ruta:Router, private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.listarSocio();
+    this.listarVehiculo();
+  }
+  listarSocio(): void {
+    this.http.get("http://localhost:8080/api/tamasys/socios/consultar", { responseType: "json" })
+      .subscribe((res: any) => {
+        console.log(res);
+        this.infoSocio = res;
+      });
+  }
+  listarVehiculo(): void {
+    this.http.get("http://localhost:8080/api/tamasys/vehiculos/consultar", { responseType: "json" })
+      .subscribe((res: any) => {
+        console.log(res);
+        this.infoVehiculo = res;
+      });
   }
 
   guardarPago(): void{

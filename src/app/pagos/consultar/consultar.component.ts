@@ -24,7 +24,7 @@ export class ConsultarComponent implements OnInit {
           "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es-mx.json"
       }
       });
-    },200)
+    },300)
     
   }
   listarPagos():void{
@@ -35,7 +35,7 @@ export class ConsultarComponent implements OnInit {
   eliminar(id:any, codigo:any):void{
     Swal.fire({
       title: '¿Desea eliminar el Pago # '+codigo+'?',
-      text: "No se puede revertir el procesos",
+      text: "No se puede revertir el proceso",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -48,7 +48,7 @@ export class ConsultarComponent implements OnInit {
           this.listarPagos();
         });
         Swal.fire({
-          title:'Elininado',
+          title:'Eliminado',
           text:'Pago # '+codigo +'se eliminó',
           icon:'success',
           showConfirmButton:false,

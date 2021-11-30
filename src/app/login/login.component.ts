@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+declare const Swal: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,14 +27,29 @@ export class LoginComponent implements OnInit {
       console.log(res);
 
       if(res.length===0){
-        alert("No existe el registro")
+        Swal.fire({
+          icon: 'alert',
+          title: 'Error!!!',
+          text: 'No existe el registro',
+          timer: 2000
+        })
       }
       for(var x of res){
         if(x.id===""||x.id===null){
-          alert("No existe el registro")
+          Swal.fire({
+            icon: 'alert',
+            title: 'Error!!!',
+            text: 'No existe el registro',
+            timer: 2000
+          })
         }
         else{
-          alert("Bienvenido "+x.user);
+          Swal.fire({
+            icon: 'success',
+            title: 'Bienvenido!!!',
+            text: x.user,
+            timer: 2000
+          })
           this.rou.navigate(["/menu"]);
         }
       }

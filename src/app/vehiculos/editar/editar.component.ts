@@ -31,7 +31,7 @@ vehiculo:any={
       this.socios = Res;
     });
 
-    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar",{responseType:"json"})
+    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar/",{responseType:"json"})
     .subscribe((Res:any)=>{
       this.conductores = Res;
     });

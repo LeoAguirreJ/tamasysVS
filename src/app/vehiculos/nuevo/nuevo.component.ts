@@ -29,19 +29,19 @@ export class NuevoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get("http://localhost:8080/api/tamasys/socios/consultar",{responseType:"json"})
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/socios/consultar",{responseType:"json"})
     .subscribe((Res:any)=>{
       this.socios = Res;
     });
 
-    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar/",{responseType:"json"})
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/conductores/consultar/",{responseType:"json"})
     .subscribe((Res:any)=>{
       this.conductores = Res;
     });
   }
 
   guardar():void{
-    this.http.post("http://localhost:8080/api/tamasys/vehiculos/crear",this.vehiculo)
+    this.http.post("http://tamasys.jelastic.saveincloud.net/api/tamasys/vehiculos/crear",this.vehiculo)
     .subscribe((Res:any)=>{
       console.log(Res);
       Swal.fire({

@@ -31,7 +31,7 @@ export class ConsultarComponent implements OnInit {
   }
 
   listar():void{
-    this.http.get("http://localhost:8080/api/tamasys/vehiculos/consultar",{responseType:"json"})
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/vehiculos/consultar",{responseType:"json"})
     .subscribe((Res:any)=>{
       console.log(Res);
       this.infoConsulta=Res;
@@ -51,7 +51,7 @@ export class ConsultarComponent implements OnInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire('Eliminado!', '', 'success');
-        this.http.delete("http://localhost:8080/api/tamasys/vehiculos/eliminar/"+id)
+        this.http.delete("http://tamasys.jelastic.saveincloud.net/api/tamasys/vehiculos/eliminar/"+id)
         .subscribe((Res:any)=>{
         this.listar();
         });

@@ -26,14 +26,14 @@ export class NuevoComponent implements OnInit {
     this.listarVehiculo();
   }
   listarSocio(): void {
-    this.http.get("http://localhost:8080/api/tamasys/socios/consultar", { responseType: "json" })
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/socios/consultar", { responseType: "json" })
       .subscribe((res: any) => {
         console.log(res);
         this.infoSocio = res;
       });
   }
   listarVehiculo(): void {
-    this.http.get("http://localhost:8080/api/tamasys/vehiculos/consultar", { responseType: "json" })
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/vehiculos/consultar", { responseType: "json" })
       .subscribe((res: any) => {
         console.log(res);
         this.infoVehiculo = res;
@@ -41,7 +41,7 @@ export class NuevoComponent implements OnInit {
   }
 
   guardarPago(): void{
-    this.http.post("http://localhost:8080/api/tamasys/pagos/crear", this.formuPago)
+    this.http.post("http://tamasys.jelastic.saveincloud.net/api/tamasys/pagos/crear", this.formuPago)
     .subscribe((res:any)=>{
       console.log(res);
       

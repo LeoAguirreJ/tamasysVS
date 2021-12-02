@@ -27,7 +27,7 @@ export class ConsultarComponent implements OnInit {
   }
 
   listar(): void {
-    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar/", { responseType: "json" })
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/conductores/consultar/", { responseType: "json" })
       .subscribe((res: any) => {
         console.log(res);
         this.infoConsulta = res;
@@ -49,7 +49,7 @@ export class ConsultarComponent implements OnInit {
       if (result.isConfirmed) {
         Swal.fire('Eliminado!', '', 'success');
         //eliminar
-        this.http.delete("http://localhost:8080/api/tamasys/conductores/eliminar/" + id)
+        this.http.delete("http://tamasys.jelastic.saveincloud.net/api/tamasys/conductores/eliminar/" + id)
           .subscribe((res: any) => {
             console.log(res);
             this.listar();

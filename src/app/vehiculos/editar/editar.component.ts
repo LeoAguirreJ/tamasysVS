@@ -26,18 +26,18 @@ vehiculo:any={
   constructor(private rou:Router,private rouvar:ActivatedRoute,private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get("http://localhost:8080/api/tamasys/socios/consultar",{responseType:"json"})
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/socios/consultar",{responseType:"json"})
     .subscribe((Res:any)=>{
       this.socios = Res;
     });
 
-    this.http.get("http://localhost:8080/api/tamasys/conductores/consultar/",{responseType:"json"})
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/conductores/consultar/",{responseType:"json"})
     .subscribe((Res:any)=>{
       this.conductores = Res;
     });
     this.vehiculo.id=this.rouvar.snapshot.params["id"];
 
-    this.http.get("http://localhost:8080/api/tamasys/vehiculos/consultar/"+this.vehiculo.id,{responseType:"json"})
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/vehiculos/consultar/"+this.vehiculo.id,{responseType:"json"})
     .subscribe((Res:any)=>{
       this.vehiculo.docSocio=Res.docSocio;
       this.vehiculo.docConductor=Res.docConductor;
@@ -49,7 +49,7 @@ vehiculo:any={
   }
 
   Actualizar():void{
-    this.http.put("http://localhost:8080/api/tamasys/vehiculos/actualizar/"+this.vehiculo.id,this.vehiculo)
+    this.http.put("http://tamasys.jelastic.saveincloud.net/api/tamasys/vehiculos/actualizar/"+this.vehiculo.id,this.vehiculo)
     .subscribe((Res:any)=>{
       console.log(Res);
       //alert("Actualizado Satisfactoriamente")

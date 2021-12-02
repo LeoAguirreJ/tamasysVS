@@ -26,20 +26,20 @@ export class EditarComponent implements OnInit {
     this.listarSocio();
     this.listarVehiculo();
     this.formuPago.id=this.rutavar.snapshot.params["id"];
-    this.http.get("http://localhost:8080/api/tamasys/pagos/consultar/"+this.formuPago.id,{responseType:"json"})
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/pagos/consultar/"+this.formuPago.id,{responseType:"json"})
     .subscribe((res:any)=>{
       this.formuPago=res;});
     
   }
   listarSocio(): void {
-    this.http.get("http://localhost:8080/api/tamasys/socios/consultar", { responseType: "json" })
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/socios/consultar", { responseType: "json" })
       .subscribe((res: any) => {
         console.log(res);
         this.infoSocio = res;
       });
   }
   listarVehiculo(): void {
-    this.http.get("http://localhost:8080/api/tamasys/vehiculos/consultar", { responseType: "json" })
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/vehiculos/consultar", { responseType: "json" })
       .subscribe((res: any) => {
         console.log(res);
         this.infoVehiculo = res;
@@ -55,7 +55,7 @@ export class EditarComponent implements OnInit {
       showConfirmButton:false,
       timer: 1500
     })
-    this.http.put("http://localhost:8080/api/tamasys/pagos/actualizar/"+this.formuPago.id, this.formuPago)
+    this.http.put("http://tamasys.jelastic.saveincloud.net/api/tamasys/pagos/actualizar/"+this.formuPago.id, this.formuPago)
     .subscribe((res:any)=>{
       this.ruta.navigate(["/menu/consultar_pagos"]);
     });

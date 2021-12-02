@@ -28,7 +28,7 @@ export class ConsultarComponent implements OnInit {
     
   }
   listarPagos():void{
-    this.http.get("http://localhost:8080/api/tamasys/pagos/consultar",{responseType:"json"})
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/pagos/consultar",{responseType:"json"})
     .subscribe((res:any)=>{
       this.infoPagos=res;});
   }
@@ -44,7 +44,7 @@ export class ConsultarComponent implements OnInit {
       cancelButtonText: 'No',
     }).then((result:any) => {
       if (result.isConfirmed) {
-        this.http.delete("http://localhost:8080/api/tamasys/pagos/eliminar/"+id).subscribe((res:any)=>{
+        this.http.delete("http://tamasys.jelastic.saveincloud.net/api/tamasys/pagos/eliminar/"+id).subscribe((res:any)=>{
           this.listarPagos();
         });
         Swal.fire({

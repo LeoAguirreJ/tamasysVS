@@ -33,7 +33,7 @@ export class NuevoComponent implements OnInit {
 
   guardar(): void {
 
-    this.http.post("http://localhost:8080/api/tamasys/socios/crear", this.socio)
+    this.http.post("http://tamasys.jelastic.saveincloud.net/api/tamasys/socios/crear", this.socio)
       .subscribe((res: any) => {
         console.log(res);
       });

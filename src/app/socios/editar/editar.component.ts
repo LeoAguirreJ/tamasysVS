@@ -31,7 +31,7 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.codId=this.rou.snapshot.params["id"];
-    var link = "http://localhost:8080/api/tamasys/socios/consultar/"+this.codId;
+    var link = "http://tamasys.jelastic.saveincloud.net/api/tamasys/socios/consultar/"+this.codId;
     this.http.get(link, {responseType:"json"})
     .subscribe((res:any)=>{
       console.log(res);
@@ -39,7 +39,7 @@ export class EditarComponent implements OnInit {
     });
   }
   actualizar():void{
-    this.http.put("http://localhost:8080/api/tamasys/socios/actualizar/"+this.codId, this.socio)
+    this.http.put("http://tamasys.jelastic.saveincloud.net/api/tamasys/socios/actualizar/"+this.codId, this.socio)
     .subscribe((res:any)=>{
       console.log(res);
       Swal.fire({

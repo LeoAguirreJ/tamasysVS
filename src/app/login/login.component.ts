@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   iniciar():void{
-    this.http.get("http://localhost:8080/api/tamasys/consultarUsuario/"+this.users.user+"/"+this.users.password, { responseType: "json" })
+    this.http.get("http://tamasys.jelastic.saveincloud.net/api/tamasys/consultarUsuario/"+this.users.user+"/"+this.users.password, { responseType: "json" })
     .subscribe((res: any) => {
       console.log(res);
 
